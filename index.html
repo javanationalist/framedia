@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Framedia Creative — Creative Media Agency</title>
+    <meta name="description" content="Framedia Creative is an editorial creative media agency focused on creative production, digital experiences, design, AI ethics, and inclusive creative practices." />
+    <meta property="og:title" content="Framedia Creative — Creative Media Agency" />
+    <meta property="og:description" content="Framedia Creative is an editorial creative media agency focused on creative production, digital experiences, design, AI ethics, and inclusive creative practices." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Framedia Creative" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Framedia Creative — Creative Media Agency" />
+    <meta name="twitter:description" content="Framedia Creative creates meaningful experiences through media, creativity, technology, and communication." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Framedia Creative",
+      "description": "Creative media agency focused on creative production, digital media, communication, design, AI ethics, and inclusive creative practices.",
+      "url": "https://framedia.creative",
+      "sameAs": []
+    }
+    </script>
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('framedia-theme');
+          var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          var doc = document.documentElement;
+          doc.setAttribute('data-theme', theme);
+          doc.classList.remove('dark', 'light');
+          doc.classList.add(theme);
+          doc.style.colorScheme = theme;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="antialiased selection:bg-[#f4f4f5] selection:text-[#0b0c0e]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

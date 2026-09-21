@@ -1,0 +1,500 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------
+   FRAMEDIA CREATIVE — THEME DESIGN TOKENS & DESIGN SYSTEM
+   -------------------------------------------------------------------------
+   Dark Mode is the primary reference visual identity.
+   Light Mode is a dedicated architectural, museum-grade editorial system.
+   ------------------------------------------------------------------------- */
+
+:root {
+  /* DARK THEME (Default / Primary Visual Identity) */
+  --bg-main: #0b0c0e;
+  --bg-main-subtle: #090a0c;
+  --bg-surface: #121418;
+  --bg-surface-hover: #191c22;
+  --bg-card: #121418;
+  --bg-card-muted: #16191f;
+  --bg-card-hover: #1a1e26;
+  --bg-nav: rgba(11, 12, 14, 0.86);
+  --bg-nav-solid: #0b0c0e;
+  --bg-footer: #070809;
+  --bg-modal: #0e1013;
+  --bg-modal-header: #14171b;
+  --bg-modal-bubble: #181b20;
+  --bg-input: #121418;
+  --bg-tag: #1c2027;
+
+  --text-heading: #ffffff;
+  --text-primary: #f4f4f5;
+  --text-secondary: #d4d4d8;
+  --text-muted: #a1a1aa;
+  --text-subtle: #71717a;
+  --text-inverse: #0b0c0e;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.25);
+
+  --accent-emerald: #10b981;
+  --accent-emerald-light: #34d399;
+  --accent-emerald-bg: rgba(6, 78, 59, 0.4);
+  --accent-emerald-border: rgba(6, 95, 70, 0.6);
+
+  --btn-primary-bg: #ffffff;
+  --btn-primary-fg: #0b0c0e;
+  --btn-primary-hover: #e4e4e7;
+
+  --btn-secondary-bg: #16191f;
+  --btn-secondary-fg: #f4f4f5;
+  --btn-secondary-border: rgba(255, 255, 255, 0.12);
+  --btn-secondary-hover: #21252e;
+
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  --shadow-floating: 0 20px 35px -5px rgba(0, 0, 0, 0.6);
+
+  --image-overlay: rgba(0, 0, 0, 0.35);
+  --image-overlay-subtle: rgba(0, 0, 0, 0.15);
+
+  --scrollbar-track: #0b0c0e;
+  --scrollbar-thumb: #27272a;
+  --scrollbar-thumb-hover: #3f3f46;
+}
+
+[data-theme="light"],
+html.light {
+  color-scheme: light;
+
+  /* LIGHT THEME (Warm Architectural Museum Off-White & Dark Charcoal) */
+  --bg-main: #f8f7f4;              /* Soft warm editorial paper tone */
+  --bg-main-subtle: #f2f0ec;       /* Slightly deeper warm neutral */
+  --bg-surface: #ffffff;           /* Crisp gallery white surface */
+  --bg-surface-hover: #f3f1ec;
+  --bg-card: #ffffff;
+  --bg-card-muted: #f4f2ed;
+  --bg-card-hover: #edeae3;
+  --bg-nav: rgba(248, 247, 244, 0.92);
+  --bg-nav-solid: #f8f7f4;
+  --bg-footer: #edeae3;
+  --bg-modal: #ffffff;
+  --bg-modal-header: #f4f2ed;
+  --bg-modal-bubble: #f2f0ec;
+  --bg-input: #ffffff;
+  --bg-tag: #eae7df;
+
+  --text-heading: #0a0c0e;         /* Pure deep charcoal obsidian */
+  --text-primary: #181a1f;         /* High-contrast readable body text (>15:1) */
+  --text-secondary: #333842;       /* Refined editorial secondary (>8:1) */
+  --text-muted: #494f5c;           /* WCAG AA caption & descriptions (>6:1) */
+  --text-subtle: #5f6675;          /* Tertiary subtle metadata (>4.7:1) */
+  --text-inverse: #ffffff;
+
+  --border-subtle: rgba(0, 0, 0, 0.12);
+  --border-medium: rgba(0, 0, 0, 0.20);
+  --border-strong: rgba(0, 0, 0, 0.38);
+
+  --accent-emerald: #047857;
+  --accent-emerald-light: #065f46;
+  --accent-emerald-bg: #ecfdf5;
+  --accent-emerald-border: #a7f3d0;
+
+  --btn-primary-bg: #121316;
+  --btn-primary-fg: #f8f7f4;
+  --btn-primary-hover: #282a30;
+
+  --btn-secondary-bg: #ffffff;
+  --btn-secondary-fg: #121316;
+  --btn-secondary-border: rgba(0, 0, 0, 0.22);
+  --btn-secondary-hover: #f3f1ec;
+
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.07), 0 2px 8px -1px rgba(0, 0, 0, 0.04);
+  --shadow-modal: 0 20px 45px -10px rgba(0, 0, 0, 0.20);
+  --shadow-floating: 0 15px 35px -5px rgba(0, 0, 0, 0.16);
+
+  --image-overlay: rgba(0, 0, 0, 0.06);
+  --image-overlay-subtle: rgba(0, 0, 0, 0.02);
+
+  --scrollbar-track: #f2f0eb;
+  --scrollbar-thumb: #c5c0b5;
+  --scrollbar-thumb-hover: #a8a395;
+}
+
+@theme {
+  --font-display: "Syne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
+
+  --color-theme-main: var(--bg-main);
+  --color-theme-main-subtle: var(--bg-main-subtle);
+  --color-theme-surface: var(--bg-surface);
+  --color-theme-card: var(--bg-card);
+  --color-theme-card-muted: var(--bg-card-muted);
+  --color-theme-nav: var(--bg-nav);
+  --color-theme-footer: var(--bg-footer);
+  --color-theme-modal: var(--bg-modal);
+  --color-theme-input: var(--bg-input);
+
+  --color-theme-fg: var(--text-primary);
+  --color-theme-fg-muted: var(--text-muted);
+  --color-theme-fg-subtle: var(--text-subtle);
+  --color-theme-fg-heading: var(--text-heading);
+
+  --color-theme-border: var(--border-subtle);
+  --color-theme-border-medium: var(--border-medium);
+  --color-theme-border-strong: var(--border-strong);
+
+  --color-theme-accent: var(--accent-emerald);
+  --color-theme-accent-light: var(--accent-emerald-light);
+  --color-theme-accent-bg: var(--accent-emerald-bg);
+  --color-theme-accent-border: var(--accent-emerald-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+.font-display {
+  font-family: "Syne", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-editorial {
+  font-family: "Newsreader", Georgia, serif;
+}
+
+/* Smooth theme transition */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition: background-color 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              fill 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              stroke 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition: none !important;
+  }
+}
+
+/* Custom subtle scrollbars mapped to tokens */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Selection style by mode */
+html.dark ::selection {
+  background-color: #f4f4f5;
+  color: #0b0c0e;
+}
+html.light ::selection {
+  background-color: #121316;
+  color: #f8f7f4;
+}
+
+/* -------------------------------------------------------------------------
+   LIGHT MODE ARCHITECTURAL MAPPINGS
+   Ensures every existing component surface, border, typography, and button
+   seamlessly adapts to Light Mode while preserving Dark Mode exactly.
+   ------------------------------------------------------------------------- */
+
+html.light body {
+  background-color: var(--bg-main) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Main canvases */
+html.light .bg-\[\#0b0c0e\],
+html.light .bg-\[\#090a0c\],
+html.light .bg-\[\#0a0c0e\],
+html.light .bg-\[\#07090b\] {
+  background-color: var(--bg-main) !important;
+}
+
+/* Header & nav backdrops */
+html.light .bg-\[\#0b0c0e\]\/85,
+html.light .bg-\[\#0b0c0e\]\/90,
+html.light .bg-\[\#0b0c0e\]\/95 {
+  background-color: var(--bg-nav) !important;
+}
+
+/* Footer canvas */
+html.light .bg-\[\#070809\],
+html.light footer {
+  background-color: var(--bg-footer) !important;
+  border-color: var(--border-medium) !important;
+}
+
+/* Surfaces, cards, and panels */
+html.light .bg-zinc-900,
+html.light .bg-zinc-900\/60,
+html.light .bg-zinc-900\/80,
+html.light .bg-zinc-900\/90,
+html.light .bg-\[\#0e1013\],
+html.light .bg-\[\#121418\],
+html.light .bg-\[\#14171b\],
+html.light .bg-\[\#111317\] {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+html.light .bg-zinc-950,
+html.light .bg-\[\#0d0f12\] {
+  background-color: var(--bg-card-muted) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+/* Badges, tags, chips, and secondary containers */
+html.light .bg-zinc-800,
+html.light .bg-zinc-800\/50,
+html.light .bg-zinc-800\/60,
+html.light .bg-zinc-800\/80 {
+  background-color: var(--bg-tag) !important;
+  border-color: var(--border-medium) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Hover surfaces */
+html.light .hover\:bg-zinc-900:hover,
+html.light .hover\:bg-zinc-800:hover,
+html.light .hover\:bg-zinc-800\/60:hover,
+html.light .hover\:bg-zinc-700:hover {
+  background-color: var(--bg-card-hover) !important;
+}
+
+/* Borders and dividers */
+html.light .border-zinc-800,
+html.light .border-zinc-800\/80,
+html.light .border-zinc-800\/60,
+html.light .border-zinc-700,
+html.light .border-zinc-700\/80,
+html.light .border-zinc-700\/90 {
+  border-color: var(--border-medium) !important;
+}
+
+html.light .border-zinc-600,
+html.light .border-zinc-500 {
+  border-color: var(--border-strong) !important;
+}
+
+/* Typography contrast & hierarchy */
+html.light .text-zinc-100,
+html.light .text-white {
+  color: var(--text-heading) !important;
+}
+
+html.light .text-zinc-200 {
+  color: var(--text-primary) !important;
+}
+
+html.light .text-zinc-300,
+html.light .text-zinc-400 {
+  color: var(--text-muted) !important;
+}
+
+html.light .text-zinc-500 {
+  color: var(--text-subtle) !important;
+}
+
+/* Ensure icons maintain crisp WCAG AA contrast */
+html.light svg.text-zinc-400,
+html.light svg.text-zinc-500,
+html.light .text-zinc-400 svg,
+html.light .text-zinc-500 svg {
+  color: var(--text-secondary) !important;
+  stroke: var(--text-secondary) !important;
+}
+
+/* Interactive link and hover states */
+html.light .hover\:text-white:hover,
+html.light .hover\:text-zinc-100:hover {
+  color: var(--text-heading) !important;
+}
+
+html.light .hover\:text-zinc-200:hover,
+html.light .hover\:text-zinc-300:hover {
+  color: var(--text-primary) !important;
+}
+
+/* Primary buttons */
+html.light .bg-white.text-black,
+html.light .bg-white.text-zinc-950,
+html.light button.bg-white:not(.text-white) {
+  background-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-fg) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+}
+
+html.light .bg-white.text-black:hover,
+html.light .hover\:bg-zinc-200:hover,
+html.light button.bg-white:not(.text-white):hover {
+  background-color: var(--btn-primary-hover) !important;
+}
+
+/* Secondary buttons & pills */
+html.light button.bg-zinc-900,
+html.light a.bg-zinc-900,
+html.light .button-secondary {
+  background-color: var(--btn-secondary-bg) !important;
+  color: var(--btn-secondary-fg) !important;
+  border-color: var(--btn-secondary-border) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light button.bg-zinc-900:hover,
+html.light a.bg-zinc-900:hover,
+html.light .button-secondary:hover {
+  background-color: var(--btn-secondary-hover) !important;
+  border-color: var(--border-strong) !important;
+}
+
+/* Emerald accents, active pills, and success indicators */
+html.light .bg-emerald-950,
+html.light .bg-emerald-950\/40,
+html.light .bg-emerald-950\/50,
+html.light .bg-emerald-950\/60,
+html.light .bg-emerald-950\/20 {
+  background-color: var(--accent-emerald-bg) !important;
+  border-color: var(--accent-emerald-border) !important;
+  color: var(--accent-emerald) !important;
+}
+
+html.light .text-emerald-400,
+html.light .text-emerald-500 {
+  color: var(--accent-emerald) !important;
+}
+
+/* Red / error indicators */
+html.light .text-red-400,
+html.light .text-red-500 {
+  color: #b91c1c !important;
+}
+html.light .bg-red-950,
+html.light .bg-red-950\/40,
+html.light .bg-red-950\/50 {
+  background-color: #fef2f2 !important;
+  border-color: #fca5a5 !important;
+  color: #991b1b !important;
+}
+
+/* Form inputs, textareas, and selects */
+html.light input:not([type="checkbox"]):not([type="radio"]),
+html.light textarea,
+html.light select {
+  background-color: var(--bg-input) !important;
+  color: var(--text-heading) !important;
+  border-color: var(--border-medium) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: var(--text-heading) !important;
+  outline: 2px solid rgba(10, 12, 14, 0.12) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: var(--text-subtle) !important;
+}
+
+/* Disabled and loading states */
+html.light button:disabled,
+html.light input:disabled,
+html.light textarea:disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+}
+
+/* Floating button in Light Mode */
+html.light #global-infra-floating-btn {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.18) !important;
+  color: #0a0c0e !important;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.16) !important;
+}
+html.light #global-infra-floating-btn .text-zinc-400 {
+  color: #494f5c !important;
+}
+
+/* inFra Chat window in Light Mode */
+html.light #infra-chat-window {
+  background-color: var(--bg-modal) !important;
+  border-color: var(--border-medium) !important;
+  box-shadow: var(--shadow-modal) !important;
+}
+
+html.light #infra-chat-window .bg-\[\#14171b\] {
+  background-color: var(--bg-modal-header) !important;
+  border-color: var(--border-medium) !important;
+}
+
+html.light #infra-chat-window .bg-\[\#181b20\] {
+  background-color: var(--bg-modal-bubble) !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+}
+
+/* SQL Script container in Admin tab - Keep dark for syntax readability */
+html.light .code-terminal {
+  background-color: #14171c !important;
+  color: #e4e4e7 !important;
+  border-color: #27272a !important;
+}
+
+/* -------------------------------------------------------------------------
+   DIRECTORY NAVIGATION BUTTON HOVER STYLES
+   - When cursor points to button or card:
+     Light Mode: SVG is green (#059669 / #10b981)
+     Dark Mode: SVG is black (#000000)
+   ------------------------------------------------------------------------- */
+/* Dark Mode (Default) */
+button[id^="directory-ctrl-"]:hover svg,
+[id^="directory-card-"]:hover button[id^="directory-ctrl-"] svg,
+html.dark button[id^="directory-ctrl-"]:hover svg,
+html.dark [id^="directory-card-"]:hover button[id^="directory-ctrl-"] svg,
+[data-theme="dark"] button[id^="directory-ctrl-"]:hover svg,
+[data-theme="dark"] [id^="directory-card-"]:hover button[id^="directory-ctrl-"] svg {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+/* Light Mode */
+html.light button[id^="directory-ctrl-"]:hover svg,
+html.light [id^="directory-card-"]:hover button[id^="directory-ctrl-"] svg,
+[data-theme="light"] button[id^="directory-ctrl-"]:hover svg,
+[data-theme="light"] [id^="directory-card-"]:hover button[id^="directory-ctrl-"] svg {
+  color: #059669 !important;
+  stroke: #059669 !important;
+}
+

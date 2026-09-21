@@ -1,0 +1,6 @@
+{
+  "name": "Framedia Creative",
+  "description": "A modern creative media agency specializing in creative production, digital media, communication, design, AI ethics, and inclusive creative practices.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
